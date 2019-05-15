@@ -241,7 +241,7 @@ CheckTheValues(){
     if(sendHumid.val>=parseInt(this.state.TextBox)){
       if(this.state.alarmSentFlag===0){
         const mqtt = require('mqtt');
-        const client = mqtt.connect('ws://broker.hivemq.com:8000/mqtt');
+        const client = mqtt.connect('wss://iot.eclipse.org:443/ws');
       
     client.on('connect', () => {
         // Inform controllers that garage is connected
@@ -260,7 +260,7 @@ else if(this.state.dropDown==="Temperature"){
     if(sendTemp.val>=parseInt(this.state.TextBox)){
       if(this.state.alarmSentFlag===0){
         const mqtt = require('mqtt');
-        const client = mqtt.connect('ws://broker.hivemq.com:8000/mqtt');
+        const client = mqtt.connect('wss://iot.eclipse.org:443/ws');
       
     client.on('connect', () => {
         // Inform controllers that garage is connected
@@ -302,7 +302,7 @@ console.log(sendHumid.val);
   render() {
 
     return (
-     /* <Connector mqttProps="ws://broker.hivemq.com:8000/mqtt" >*/
+     /* <Connector mqttProps="ws://test.mosquitto.org:8000/mqtt" >*/
       <div className="App">
       <SideBar />
       <div style={{marginLeft:'18', marginRight:-130.5}}>
@@ -323,7 +323,7 @@ console.log(sendHumid.val);
       
         <div style={{width: 120, marginLeft:"auto", marginRight:"auto"}}>
         
-          <Connector mqttProps="ws://broker.hivemq.com:8000/mqtt" >
+          <Connector mqttProps="wss://iot.eclipse.org:443/ws" >
           <MessageContainer  type={"temp"} />
           </Connector>
           </div>
@@ -342,7 +342,7 @@ console.log(sendHumid.val);
       
       <div style={{width: 120, marginLeft:"auto", marginRight:"auto"}}>
       
-          <Connector mqttProps="ws://broker.hivemq.com:8000/mqtt" >
+          <Connector mqttProps="wss://iot.eclipse.org:443/ws" >
           <MessageContainer  type={"humid"} /> 
           </Connector>
           </div>
@@ -375,7 +375,7 @@ console.log(sendHumid.val);
           
           <div className="w3-col s4 w3-center w3-padding-16">
           <div className="w3-card-4 w3-white w3-round-large" style={{width:510 , height: 250, paddingTop:10, position:"relative"}} >
-           <Connector mqttProps="ws://broker.hivemq.com:8000/mqtt" > 
+           <Connector mqttProps="wss://iot.eclipse.org:443/ws" > 
            <MessageContainer type={"tempChart"} />  
            </Connector> 
            <div className="w3-container w3-round w3-center w3-light-gray" style={{height:45,width:510,position:"absolute",bottom:0}}>
@@ -401,7 +401,7 @@ console.log(sendHumid.val);
   <div className="w3-col s9  w3-center">
   <div className="w3-col s4  w3-padding-16">
           <div className="w3-card-4 w3-white w3-round-large" style={{width:510 , height: 250, paddingTop:10, position:"relative"}} >
-           <Connector mqttProps="ws://broker.hivemq.com:8000/mqtt" > 
+           <Connector mqttProps="wss://iot.eclipse.org:443/ws" > 
            <MessageContainerMQ2 type={"MQChart"} />  
            </Connector> 
            <div className="w3-container w3-round w3-center w3-light-gray" style={{height:45,width:510,position:"absolute",bottom:0}}>
@@ -422,7 +422,7 @@ console.log(sendHumid.val);
 
 <div className="w3-col s4 w3-center w3-padding-24">
 <div className="w3-card-4 w3-white w3-round-large" style={{width:510 , height: 250, paddingTop:10, position:"relative"}} >
- <Connector mqttProps="ws://broker.hivemq.com:8000/mqtt" > 
+ <Connector mqttProps="wss://iot.eclipse.org:443/ws" > 
  <MessageContainerDust type={"Dust"} />  
  </Connector> 
  
