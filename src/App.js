@@ -20,105 +20,20 @@ import Demo from './ConnectedSensors.js';
 import Dropdown from './DropDown.js';
 import TextBox from './TextBox';
 import { send } from 'q';
+var mqttTopics="";
+
+var MessageContainer;
+var MessageContainerMQ2;
+var MessageContainerDust;
 
 
 
-const MessageContainer = subscribe({topic: 'c/data/dht22/string'})(_MessageContainer);
-const MessageContainerMQ2 = subscribe({topic: 'c/data/mq2/string'})(_MessageContainerMQ2);
-const MessageContainerDust = subscribe({topic: 'c/data/dust/string'})(_MessageContainerDust);
-
-class SideBar extends React.Component{
-  
-  
-    state={b1:0,
-    b2:0,
-  b3:0
-
-    }
-
-  
-    btnList=[
-      "Device 1",
-      "Device 2",
-      "Device 3"
-      
-    ];
-    btnCounter=3;
-  handleClick(n,bList){
-    
-    if(n===1){
-      this.setState({
-        b1: 1
-      });
-      console.log("button 1 =",this.state.b1);
-    }
-    else if(n===2){
-      this.setState({
-        b2: 1
-      });
-      console.log("button 2 =",this.state.b2);
-    }
-
-    else if(n===3){
-      this.setState({
-        b3: 1
-      });
-      console.log("button 3 =",this.state.b3);
-    }
-
-    else if(n===99){
-      this.setState({
-        b3: 1
-      });
-      console.log("button 4-add =",this.state.b3);
-      this.btnCounter++;
-      this.btnList.push("Device "+this.btnCounter)
-      
-    }
-    console.log("button pressed===",n);
-    
-  }
- 
-
-  render(){
-
-   
-    var m=(
-      <div>
-  
-   <div className="w3-sidebar w3-light-grey w3-bar-block w3-animate-opacity" style={{width:'20%'}}>
-    <h3 className="w3-bar-item">Devices</h3>
-
-    
-    {/* <button onClick={(e)=>this.handleClick(1,e)} className="w3-bar-item w3-button w3-ripple w3-teal">Device 1
-    
-    </button>
-    <button onClick={(e)=>this.handleClick(2,e)} className="w3-bar-item w3-button w3-ripple w3-teal">Device 2</button>
-    <button onClick={(e)=>this.handleClick(3,this.btnList,e)}  className="w3-bar-item w3-button w3-ripple w3-teal">Device 3</button >
-     */}
-
-    <div>
-  {this.btnList.map((ml,i)=>
-  <div key={i}>
-    <button onClick={(e)=>this.handleClick(i,e)}  className="w3-bar-item w3-button w3-ripple w3-teal">{this.btnList[i]}</button > 
-  </div>
+  //  MessageContainer = subscribe({topic: 'c/data/dht22/string'})(_MessageContainer);
+  //  MessageContainerMQ2 = subscribe({topic: 'c/data/mq2/string'})(_MessageContainerMQ2);
+  //  MessageContainerDust = subscribe({topic: 'c/data/dust/string'})(_MessageContainerDust);
 
 
-  )}
-</div>
-    
-    
-      <div style={{position:"absolute", bottom:0, left:"40%"}}>
-    
-      <button className="w3-button w3-teal" onClick={(e)=>this.handleClick(99,e)}>+</button>
-      </div>
-    
-  </div>
-        </div>
-    );
-    return(m);
-  }
-}
+
 
 /* class MQTTVal extends React.Component{
 
@@ -202,8 +117,21 @@ class Toggle extends React.Component {
   }
 }
 class App extends Component {
+ 
+ 
   constructor(props){
     super(props);
+
+    if(this.props.mqttTopics==="EMS1"){
+      MessageContainer = subscribe({topic: 'c/data/dht22/string'})(_MessageContainer);
+      MessageContainerMQ2 = subscribe({topic: 'c/data/mq2/string'})(_MessageContainerMQ2);
+      MessageContainerDust = subscribe({topic: 'c/data/dust/string'})(_MessageContainerDust);
+    }
+    else if(this.props.mqttTopics==="EMS2"){
+      MessageContainer = subscribe({topic: 'd/data/dht22/string'})(_MessageContainer);
+      MessageContainerMQ2 = subscribe({topic: 'd/data/mq2/string'})(_MessageContainerMQ2);
+      MessageContainerDust = subscribe({topic: 'd/data/dust/string'})(_MessageContainerDust);
+    }
     this.state={dropDown:'', TextBox:'', humid:0,alarmSentFlag:0}
     this.getData=this.getData.bind(this);
     this.getDataDropDown=this.getDataDropDown.bind(this);
@@ -304,15 +232,16 @@ console.log(sendHumid.val);
     return (
      /* <Connector mqttProps="ws://test.mosquitto.org:8000/mqtt" >*/
       <div className="App">
-      <SideBar />
+      {/* <SideBar /> */}
       <div style={{marginLeft:'18', marginRight:-130.5}}>
-      <div className="w3-container w3-teal">
+      {/* <div className="w3-container w3-teal">
   <h3>
     <img src={logo} className="App-logo" alt="logo"  style={{height:40}}/>
   Industrial Environment Monitor
+  <Toggle />
   
   </h3>
-</div>
+</div> */}
       <div className="w3-container w3-custom-color" style={{"width":'100%'}}>      
       <header className="App-header">
 
