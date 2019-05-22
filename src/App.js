@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './w3.css';
-
+import SideBar from './SideBar.js'
 
 import {Connector} from "mqtt-react";
 import _MessageContainer from './MQTTsubscribe.js';
@@ -232,7 +232,7 @@ console.log(sendHumid.val);
     return (
      /* <Connector mqttProps="ws://test.mosquitto.org:8000/mqtt" >*/
       <div className="App">
-      {/* <SideBar /> */}
+       <SideBar /> 
       <div style={{marginLeft:'18', marginRight:-130.5}}>
       {/* <div className="w3-container w3-teal">
   <h3>
