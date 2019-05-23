@@ -10,6 +10,7 @@ export default class MessageContainer extends React.Component {
  
 constructor(props){
   super(props);
+ 
   lastStateTemp.push(this.props.data);
       lastStateTemp.push(this.props.type);
       console.log(lastStateTemp);

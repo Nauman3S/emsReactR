@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import  "./lengthOf.js";
 import DustChart from './DustChart.js';
 //import { ReactComponent } from '*.svg';
 
@@ -11,6 +11,22 @@ export default ({data,type}) => {
 
 
   console.log("dataa",data);
+  try{
+
+    //remove first 10 entries if total length is greater than 20
+var size = Object.size(data);
+if(size>=20){
+  console.log("size increased removing");
+  for(var i=0;i<10;i++){
+    data.shift();
+  }
+}
+console.log("length of data", size);
+    console.log("type of data", typeof data);
+   }
+   catch(err){
+     console.log("error occurred while calculating length");
+   }
   console.log("d0",data[0]);
   var k=data[0]
   var valuesArray=[];
@@ -38,6 +54,24 @@ var dt = new Date();
         if (arr4[1]==="Dust"){
      
   var k={name:utcDate,Dust: parseInt(arr4[2])};
+
+  try{
+
+    //remove first 10 entries if total length is greater than 20
+var size = Object.size(DustGraph);
+if(size>=20){
+  console.log("size increased removing");
+  for(var i=0;i<10;i++){
+    DustGraph.shift();
+  }
+}
+console.log("length of dht22", size);
+    console.log("type of dht22", typeof DustGraph);
+   }
+   catch(err){
+     console.log("error occurred while calculating length");
+   }
+
   DustGraph.push(k);
   console.log("DustGraph", DustGraph);
   return (<DustChart val={DustGraph} def="Dust Sensor"/> );

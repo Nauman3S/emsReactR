@@ -3,7 +3,9 @@ import React from 'react';
 import {GaugeElement} from "./GaugeElement.js";
 import ChartElement from './ChartsElement.js';
 import MQChart from './MQChart.js';
+//import { SERVFAIL } from 'dns';
 //import { ReactComponent } from '*.svg';
+import  "./lengthOf.js";
 
 var TempGraph=[{name:0, Value:0}];
 var MQGraph=[{name:0,LPG:0,CO:0,Smoke:0}];
@@ -13,10 +15,24 @@ export{sendHumid};
 export{sendTemp};
 export default ({data,type}) => {
  // const dataList = data.map((d) => <li>{d}</li>)
- 
-  
-  
+
   console.log("dataa",data);
+  try{
+
+    //remove first 10 entries if total length is greater than 20
+var size = Object.size(data);
+if(size>=20){
+  console.log("size increased removing");
+  for(var i=0;i<10;i++){
+    data.shift();
+  }
+}
+console.log("length of data", size);
+    console.log("type of data", typeof data);
+   }
+   catch(err){
+     console.log("error occurred while calculating length");
+   }
   console.log("d0",data[0]);
   var k=data[0]
   var valuesArray=[];
@@ -90,6 +106,22 @@ else if(type==="tempChart"){
      
   var k={name:utcDate,Value: parseInt(arr3[2])};
   TempGraph.push(k);
+  try{
+
+    //remove first 10 entries if total length is greater than 20
+var size = Object.size(TempGraph);
+if(size>=20){
+  console.log("size increased removing");
+  for(var i=0;i<10;i++){
+    TempGraph.shift();
+  }
+}
+console.log("length of dht22", size);
+    console.log("type of dht22", typeof TempGraph);
+   }
+   catch(err){
+     console.log("error occurred while calculating length");
+   }
   console.log("tempGraph", TempGraph);
   return (<ChartElement val={TempGraph} def="Temperature Sensor"/> );
 
@@ -124,6 +156,22 @@ var dt = new Date();
         if (arr4[1]==="MQ2"){
      
   var k={name:utcDate,LPG: parseInt(arr4[2]),CO: parseInt(arr4[3]),Smoke: parseInt(arr4[4])};
+  try{
+
+    //remove first 10 entries if total length is greater than 20
+var size = Object.size(MQGraph);
+if(size>=20){
+  console.log("size increased removing");
+  for(var i=0;i<10;i++){
+    MQGraph.shift();
+  }
+}
+console.log("length of dht22", size);
+    console.log("type of dht22", typeof MQGraph);
+   }
+   catch(err){
+     console.log("error occurred while calculating length");
+   }
   MQGraph.push(k);
   console.log("MQGraphGraph", MQGraph);
   return (<MQChart val={MQGraph} def="MQ2 Sensor"/> );
