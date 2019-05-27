@@ -1,0 +1,686 @@
+[
+    {
+        "id": "5e330ac8.d6a564",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "93cb2a90.965c6",
+        "type": "mqtt in",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "topic": "c/data/dht22/string",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "48ede55e.0c25e4",
+        "x": 301.5,
+        "y": 274,
+        "wires": [
+            [
+                "1dfd2e49.95bbf2",
+                "84ddcc4.714b1b"
+            ]
+        ]
+    },
+    {
+        "id": "1dfd2e49.95bbf2",
+        "type": "debug",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 693.6110229492188,
+        "y": 346.11102294921875,
+        "wires": []
+    },
+    {
+        "id": "787fc662.61154",
+        "type": "mqtt in",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "topic": "c/data/mq2/string",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "48ede55e.0c25e4",
+        "x": 288,
+        "y": 363,
+        "wires": [
+            [
+                "1dfd2e49.95bbf2",
+                "47624557.2831ec"
+            ]
+        ]
+    },
+    {
+        "id": "a5584880.ed5be",
+        "type": "mqtt in",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "topic": "c/data/dust/string",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "48ede55e.0c25e4",
+        "x": 266,
+        "y": 446,
+        "wires": [
+            [
+                "1dfd2e49.95bbf2",
+                "ad451840.e6b44"
+            ]
+        ]
+    },
+    {
+        "id": "1001d328.425315",
+        "type": "mqtt out",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "topic": "c/data/dht22/string",
+        "qos": "0",
+        "retain": "",
+        "broker": "48ede55e.0c25e4",
+        "x": 1398.27783203125,
+        "y": 647.5556030273438,
+        "wires": []
+    },
+    {
+        "id": "17e4d03d.0787",
+        "type": "trigger",
+        "z": "5e330ac8.d6a564",
+        "op1": "",
+        "op2": "0",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "-1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 786.1666870117188,
+        "y": 704.6666870117188,
+        "wires": [
+            [
+                "1001d328.425315",
+                "54e98ab.15fcd74"
+            ]
+        ]
+    },
+    {
+        "id": "84463a4b.84b5f8",
+        "type": "trigger",
+        "z": "5e330ac8.d6a564",
+        "op1": "",
+        "op2": "0",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "-1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 778.888916015625,
+        "y": 749.1110229492188,
+        "wires": [
+            [
+                "84ec2144.008168",
+                "54e98ab.15fcd74"
+            ]
+        ]
+    },
+    {
+        "id": "8e3aa215.9db038",
+        "type": "trigger",
+        "z": "5e330ac8.d6a564",
+        "op1": "",
+        "op2": "0",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "-1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 784.3333740234375,
+        "y": 795.5555419921875,
+        "wires": [
+            [
+                "ba13c111.f9f9a",
+                "54e98ab.15fcd74"
+            ]
+        ]
+    },
+    {
+        "id": "84ec2144.008168",
+        "type": "mqtt out",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "topic": "c/data/dust/string",
+        "qos": "0",
+        "retain": "",
+        "broker": "48ede55e.0c25e4",
+        "x": 1398.444580078125,
+        "y": 704.4443969726562,
+        "wires": []
+    },
+    {
+        "id": "ba13c111.f9f9a",
+        "type": "mqtt out",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "topic": "c/data/mq2/string",
+        "qos": "0",
+        "retain": "",
+        "broker": "48ede55e.0c25e4",
+        "x": 1388.9998779296875,
+        "y": 758.7777709960938,
+        "wires": []
+    },
+    {
+        "id": "e638eb84.20a568",
+        "type": "inject",
+        "z": "5e330ac8.d6a564",
+        "name": "Start Random Data Insertion",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 288.3333435058594,
+        "y": 890.3333129882812,
+        "wires": [
+            [
+                "ad7562eb.2ade5",
+                "ca710333.77933",
+                "85b5a239.057e68",
+                "1a4dd1f9.f6d216",
+                "f69b7e0a.e895e",
+                "e03fb8e8.60f0d8"
+            ]
+        ]
+    },
+    {
+        "id": "ad7562eb.2ade5",
+        "type": "function",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "func": "function getRandomArbitrary(min, max) {\n   return  Math.random() * (max - min) + min;\n}\n\nmsg.payload=\"Sensor;DHT22;\"+getRandomArbitrary(27,37)+\";\"+getRandomArbitrary(37,40);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590.2221984863281,
+        "y": 708.8888854980469,
+        "wires": [
+            [
+                "17e4d03d.0787"
+            ]
+        ]
+    },
+    {
+        "id": "ca710333.77933",
+        "type": "function",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "func": "function getRandomArbitrary(min, max) {\n   return  Math.random() * (max - min) + min;\n}\n\nmsg.payload=\"Sensor;Dust;\"+getRandomArbitrary(0,3)+\";\"+getRandomArbitrary(37,40);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 577.3334045410156,
+        "y": 756.3333129882812,
+        "wires": [
+            [
+                "84463a4b.84b5f8"
+            ]
+        ]
+    },
+    {
+        "id": "85b5a239.057e68",
+        "type": "function",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "func": "function getRandomArbitrary(min, max) {\n   return  Math.random() * (max - min) + min;\n}\n\nmsg.payload=\"Sensor;MQ2;\"+getRandomArbitrary(10,32)+\";\"+getRandomArbitrary(37,100)+\";\"+getRandomArbitrary(15,77);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 577.6666870117188,
+        "y": 808.3333129882812,
+        "wires": [
+            [
+                "8e3aa215.9db038"
+            ]
+        ]
+    },
+    {
+        "id": "b17c6c87.f73778",
+        "type": "mqtt out",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "topic": "d/data/dht22/string",
+        "qos": "0",
+        "retain": "",
+        "broker": "48ede55e.0c25e4",
+        "x": 1398.3333740234375,
+        "y": 1008.3333129882812,
+        "wires": []
+    },
+    {
+        "id": "f8489afb.0d493",
+        "type": "mqtt out",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "topic": "d/data/dust/string",
+        "qos": "0",
+        "retain": "",
+        "broker": "48ede55e.0c25e4",
+        "x": 1402.111083984375,
+        "y": 1054.9998168945312,
+        "wires": []
+    },
+    {
+        "id": "f228a296.336258",
+        "type": "mqtt out",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "topic": "d/data/mq2/string",
+        "qos": "0",
+        "retain": "",
+        "broker": "48ede55e.0c25e4",
+        "x": 1401,
+        "y": 1105.1111450195312,
+        "wires": []
+    },
+    {
+        "id": "fb6fc3cb.5de22",
+        "type": "trigger",
+        "z": "5e330ac8.d6a564",
+        "op1": "",
+        "op2": "0",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "-1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 854.0000305175781,
+        "y": 974.7777099609375,
+        "wires": [
+            [
+                "b17c6c87.f73778",
+                "54e98ab.15fcd74"
+            ]
+        ]
+    },
+    {
+        "id": "dbc760e.7482aa",
+        "type": "trigger",
+        "z": "5e330ac8.d6a564",
+        "op1": "",
+        "op2": "0",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "-1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 843.9444580078125,
+        "y": 1017.4444580078125,
+        "wires": [
+            [
+                "f8489afb.0d493",
+                "54e98ab.15fcd74"
+            ]
+        ]
+    },
+    {
+        "id": "db3e1dd.35989e",
+        "type": "trigger",
+        "z": "5e330ac8.d6a564",
+        "op1": "",
+        "op2": "0",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "-1",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 854.9444274902344,
+        "y": 1053.8889770507812,
+        "wires": [
+            [
+                "f228a296.336258",
+                "54e98ab.15fcd74"
+            ]
+        ]
+    },
+    {
+        "id": "1a4dd1f9.f6d216",
+        "type": "function",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "func": "function getRandomArbitrary(min, max) {\n   return  Math.random() * (max - min) + min;\n}\n\nmsg.payload=\"Sensor;DHT22;\"+getRandomArbitrary(27,37)+\";\"+getRandomArbitrary(37,40);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 597.5,
+        "y": 968.3333129882812,
+        "wires": [
+            [
+                "fb6fc3cb.5de22"
+            ]
+        ]
+    },
+    {
+        "id": "f69b7e0a.e895e",
+        "type": "function",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "func": "function getRandomArbitrary(min, max) {\n   return  Math.random() * (max - min) + min;\n}\n\nmsg.payload=\"Sensor;Dust;\"+getRandomArbitrary(0,3)+\";\"+getRandomArbitrary(37,40);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 572.3888854980469,
+        "y": 1016.8888549804688,
+        "wires": [
+            [
+                "dbc760e.7482aa"
+            ]
+        ]
+    },
+    {
+        "id": "e03fb8e8.60f0d8",
+        "type": "function",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "func": "function getRandomArbitrary(min, max) {\n   return  Math.random() * (max - min) + min;\n}\n\nmsg.payload=\"Sensor;MQ2;\"+getRandomArbitrary(10,32)+\";\"+getRandomArbitrary(37,100)+\";\"+getRandomArbitrary(15,77);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 584.9444274902344,
+        "y": 1063.3333740234375,
+        "wires": [
+            [
+                "db3e1dd.35989e"
+            ]
+        ]
+    },
+    {
+        "id": "54e98ab.15fcd74",
+        "type": "debug",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1899.1668701171875,
+        "y": 882.4444580078125,
+        "wires": []
+    },
+    {
+        "id": "44bdb0c1.68624",
+        "type": "mysql",
+        "z": "5e330ac8.d6a564",
+        "mydb": "7a50861c.853fc",
+        "name": "",
+        "x": 1729.388916015625,
+        "y": 168.7777557373047,
+        "wires": [
+            [
+                "3e5ab898.bf9958"
+            ]
+        ]
+    },
+    {
+        "id": "7e07c8d4.6c9d08",
+        "type": "inject",
+        "z": "5e330ac8.d6a564",
+        "name": "Test Inject",
+        "topic": "INSERT INTO ems (Temperature, Humidity) VALUES (34,30);",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 737.7222900390625,
+        "y": 70.66663360595703,
+        "wires": [
+            [
+                "44bdb0c1.68624"
+            ]
+        ]
+    },
+    {
+        "id": "3e5ab898.bf9958",
+        "type": "debug",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 2017.2222900390625,
+        "y": 308.33331298828125,
+        "wires": []
+    },
+    {
+        "id": "22447d32.8f7dfa",
+        "type": "function",
+        "z": "5e330ac8.d6a564",
+        "name": "msgSplitter",
+        "func": "\nvar m=msg.payload.split(\"|\");\n\n\nvar mk1;\nvar mk2;\nvar mk3;\nvar query=\"\";\n\nmk1=m[0]\nmk1=mk1.split(\";\");\nmk2=m[1]\nmk2=mk2.split(\";\");\nmk3=m[2]\nmk3=mk3.split(\";\");\n\nif(mk1[0]==\"Sensor\" && mk2[0]==\"Sensor\" && mk3[0]==\"Sensor\"){\n\nquery=\"INSERT INTO ems (Temperature, Humidity, LPG, CO, SMOKE, DUST) VALUES (\"+mk1[2]+\",\"+mk1[3]+\",\"+mk2[2]+\",\"+mk2[3]+\",\"+mk2[4]+\",\"+mk3[2]+\");\";\nmsg.topic=query;\n\n\n\nmsg.payload=mk2;    \n\nreturn  msg;\n}\n\n\n\n\n\n\n\n\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1368.2223510742188,
+        "y": 356.7777404785156,
+        "wires": [
+            [
+                "3e5ab898.bf9958",
+                "cc0ab0f7.f75668"
+            ]
+        ]
+    },
+    {
+        "id": "47624557.2831ec",
+        "type": "change",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "var1",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 891.27783203125,
+        "y": 375.6666564941406,
+        "wires": [
+            [
+                "2a67feaf.7ca55a"
+            ]
+        ]
+    },
+    {
+        "id": "ad451840.e6b44",
+        "type": "change",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "var2",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 884.77783203125,
+        "y": 448.111083984375,
+        "wires": [
+            [
+                "2a67feaf.7ca55a"
+            ]
+        ]
+    },
+    {
+        "id": "2a67feaf.7ca55a",
+        "type": "change",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$flowContext('var0')&\"|\"&$flowContext('var1')&\"|\"&$flowContext('var2')",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1123.4443969726562,
+        "y": 357.9999694824219,
+        "wires": [
+            [
+                "22447d32.8f7dfa"
+            ]
+        ]
+    },
+    {
+        "id": "84ddcc4.714b1b",
+        "type": "change",
+        "z": "5e330ac8.d6a564",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "var0",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 879.8888549804688,
+        "y": 253.5555419921875,
+        "wires": [
+            [
+                "2a67feaf.7ca55a"
+            ]
+        ]
+    },
+    {
+        "id": "7f3f2fc3.f1138",
+        "type": "inject",
+        "z": "5e330ac8.d6a564",
+        "name": "Remove all rows of DB",
+        "topic": "DELETE FROM ems;",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 768.3334350585938,
+        "y": 128.8887939453125,
+        "wires": [
+            [
+                "44bdb0c1.68624"
+            ]
+        ]
+    },
+    {
+        "id": "cc0ab0f7.f75668",
+        "type": "delay",
+        "z": "5e330ac8.d6a564",
+        "name": "sampleRate",
+        "pauseType": "queue",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1630.5560302734375,
+        "y": 272.22216796875,
+        "wires": [
+            [
+                "44bdb0c1.68624"
+            ]
+        ]
+    },
+    {
+        "id": "4fd21079.3272d8",
+        "type": "comment",
+        "z": "5e330ac8.d6a564",
+        "name": "Sample Rate Description",
+        "info": "Double click sampleRate Node to change the frequency",
+        "x": 1424.9998779296875,
+        "y": 239.99996948242188,
+        "wires": []
+    },
+    {
+        "id": "48ede55e.0c25e4",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "eclipse",
+        "broker": "iot.eclipse.org",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "7a50861c.853fc",
+        "type": "MySQLdatabase",
+        "z": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "ems",
+        "tz": ""
+    }
+]
